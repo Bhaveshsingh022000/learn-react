@@ -17,7 +17,8 @@ class App extends Component {
       { id: 'asf', name: 'GHI', age: 29 }
     ],
     otherState: 'ssacsac',
-    showPersons: false
+    showPersons: false,
+    showCockpit: true
   }
 
   static getDerivedStateFromProps(props, state){
@@ -82,11 +83,13 @@ class App extends Component {
 
     return (
       <div className={classesStyle.App}>
-        <Cockpit
+        <button onClick={()=>{this.setState({showCockpit: false})}}>Show Cockpit</button>
+        { this.state.showCockpit ? ( <Cockpit
         title = {this.props.appTitle} 
         persons = {this.state.persons}
         showPersons = {this.state.showPersons}
         clicked = {this.tooglePersonHandler} />
+        ): null}
         {persons}
       </div>
     );
