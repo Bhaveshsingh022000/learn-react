@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import styled from 'styled-components';
+import classesStyle from './App.module.css';
 import Person from './Person/Person';
-
-const StyledButton = styled.button`
-background-color: ${props => props.alt ? 'red' : 'green'};
-font: inherit;
-border: 1px solid white;
-padding: 8px;
-color: white;
-cursor: pointer;
-
-&:hover {
-  background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-  color: black;
-
-}`;
 
 class App extends Component {
   state = {
@@ -55,20 +40,8 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      font: 'inherit',
-      border: '1px solid white',
-      padding: '8px',
-      color: 'white',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    };
-
     let persons = null;
+    let btnClass = [classesStyle.Button];
     if (this.state.showPersons) {
       persons = (
         < div >
@@ -83,29 +56,25 @@ class App extends Component {
 
         </div>
       );
-      // style.backgroundColor = "red";
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
+      btnClass.push(classesStyle.Red);
     }
 
-    const classes = [];
+    const Assignedclasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      Assignedclasses.push(classesStyle.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      Assignedclasses.push(classesStyle.bold);
     }
 
     return (
-      <div className="App">
+      <div className={classesStyle.App}>
         <h1>hello</h1>
-        <p className={classes.join(' ')}>this is working</p>
-        <StyledButton
-          alt={this.state.showPersons}
+        <p className={Assignedclasses.join(' ')}>this is working</p>
+        <button
+          className={btnClass.join(' ')}
           onClick={this.tooglePersonHandler} >Switch Button
-        </StyledButton>
+        </button>
         {persons}
       </div>
     );
