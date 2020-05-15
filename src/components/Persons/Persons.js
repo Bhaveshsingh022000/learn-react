@@ -13,6 +13,10 @@ class Persons extends Component {
         return true;
     }
 
+    componentWillUnmount(){
+        console.log("persons.js componentwillUnmount");
+    }
+
     getSnapshotBeforeUpdate(pevState, nextState){
         console.log("persons.js getSnapShotBeforeUpdate");
         return {message: 'Snapshot!'};

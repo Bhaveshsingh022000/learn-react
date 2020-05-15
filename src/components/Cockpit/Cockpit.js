@@ -4,6 +4,16 @@ import classesStyle from './Cockpit.module.css';
 
 const cockpit = (props) => {
 
+    
+    // useEffect(() => {
+    //     console.log("useeffect cockpit.js");
+    //     const timer = setTimeout(()=>{
+    //         alert("Saved data to cloud");
+    //     }, 1000);
+    //     return ()=>{
+    //         clearTimeout(timer);
+    //     };
+    // }, []);
 
     const Assignedclasses = [];
     let btnClass = '';
