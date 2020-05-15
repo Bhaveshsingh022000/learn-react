@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classesStyle from './App.module.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -41,34 +42,23 @@ class App extends Component {
 
   render() {
     let persons = null;
-    let btnClass = [classesStyle.Button];
+    
     if (this.state.showPersons) {
-      persons = (
-        < div >
+      persons = 
           <Persons persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangedHandler} />
-        </div>
-      );
-      btnClass.push(classesStyle.Red);
+      
     }
 
-    const Assignedclasses = [];
-    if (this.state.persons.length <= 2) {
-      Assignedclasses.push(classesStyle.red);
-    }
-    if (this.state.persons.length <= 1) {
-      Assignedclasses.push(classesStyle.bold);
-    }
+    
 
     return (
       <div className={classesStyle.App}>
-        <h1>hello</h1>
-        <p className={Assignedclasses.join(' ')}>this is working</p>
-        <button
-          className={btnClass.join(' ')}
-          onClick={this.tooglePersonHandler} >Switch Button
-        </button>
+        <Cockpit 
+        persons = {this.state.persons}
+        showPersons = {this.state.showPersons}
+        clicked = {this.tooglePersonHandler} />
         {persons}
       </div>
     );
