@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import classesStyle from './Person.module.css';
 import Aux from '../../../hoc/Auxiliary';
-
+import withClass from '../../../hoc/withClass';
 class Person extends Component{
     render(){
         console.log("person.js rendering...");
         return (
-            <React.Fragment className={classesStyle.Person}>
+            <React.Fragment>
             <p onClick={this.props.click}>
                 I am {this.props.name} and age is {this.props.age}
                 </p>
@@ -18,4 +18,4 @@ class Person extends Component{
     
 };
 
-export default Person;
+export default withClass(Person, classesStyle.Person);
