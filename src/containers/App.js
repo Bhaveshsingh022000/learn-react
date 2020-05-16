@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classesStyle from './App.module.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
-import WithClass from '../hoc/withClass';
+
 
 class App extends Component {
   constructor(props){
